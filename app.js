@@ -17,7 +17,7 @@ var userRoutes = require('./routes/user');
 
 
 var app = express();
-mongoose.connect('mongodb://localhost:27017/shopping');
+mongoose.connect('mongodb://root:1234@ds149491.mlab.com:49491/wastecamdb');
 require('./config/passport');
 
 // view engine setup
