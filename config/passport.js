@@ -53,10 +53,12 @@ passport.use('local.signin',new LocalStrategy({
   passwordField : 'password',
   passReqToCallback : true
 } , function(req,email,password,done){
+    console.log(email);
   req.checkBody('email', 'Invalid email').notEmpty().isEmail();
   req.checkBody('password', 'Invalid password').notEmpty();
   var errors = req.validationErrors();
   if(errors){
+    //   console.log(errors);
     var messages = [];
     errors.forEach(function(error){
       messages.push(error.msg);
@@ -64,8 +66,9 @@ passport.use('local.signin',new LocalStrategy({
     return done(null,false,req.flash('error',messages));
   }
   User.findOne({'email' : email} , function(err, user){
-    if( err)
+    if(err)
     {
+        // console.log(err);
       return done(err);
     }
     if (!user)
