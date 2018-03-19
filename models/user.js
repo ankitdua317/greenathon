@@ -3,8 +3,13 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new Schema({
+  name : { type : String, required : true},
+  gender : { type : String, required : true},
+  age : { type : Number, required : true},
   email :  {type : String , required : true},
-  password : {type : String , required : true}
+  password : {type : String , required : true},
+  totalRewardCoins : { type : Number},
+  totalItemsSearched : { type : Number}
 });
 
 userSchema.methods.encryptPassword = function(password){
@@ -16,3 +21,4 @@ userSchema.methods.validPassword = function(password){
 };
 
 module.exports = mongoose.model('User', userSchema);
+ 
