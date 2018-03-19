@@ -37,8 +37,12 @@ passport.use('local.signup' , new LocalStrategy({
       return done(null , false , {message : 'Email  already exist '});
     }
     var newUser = new User();
+    newUser.name = name;
+    newUser.gender = gender;
     newUser.email = email;
+    newUser.age = age;
     newUser.password = newUser.encryptPassword(password);
+    newUser.rewardCoins = 0;
     newUser.save(function(err,result){
       if (err){
         return done(error)
