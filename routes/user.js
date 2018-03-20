@@ -5,6 +5,7 @@ var csrfProtection = csrf();
 var passport = require('passport');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
+const multer = require("multer");
 router.use(csrfProtection);
 
 router.get('/profile' , isLoggedIn ,function(req,res,next){
@@ -21,6 +22,10 @@ router.get('/profile' , isLoggedIn ,function(req,res,next){
   });
 
 
+});
+
+router.get('/leaderboard', isLoggedIn, function(req, res, next){
+    res.render('user/leaderboard');
 });
 
 router.get('/logout', isLoggedIn, function(req,res,next){
@@ -67,6 +72,16 @@ router.post('/signin' , passport.authenticate ('local.signin' , {
     res.redirect('/user/profile');
   }
 });
+
+router.post('/size', isLoggedIn, multer({dest : './uploads/'}).single('photo'), function(req,res){
+    var size = req.file.size;
+    console.log(`file uploaded with size : ${size}`);
+    res.render('user/signin');
+});
+
+// router.get('/compare', function(req, res, next){
+//     res.render('user/profile');
+// })
 
 module.exports = router;
 
