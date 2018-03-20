@@ -13,8 +13,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 body {
-    background : #f8f8f8;
+    background : #F8F8F8;
 }
+
+.carousel-indicators li { visibility: hidden; }
 
 .head {
     padding: 30px;
@@ -84,15 +86,6 @@ body {
     color: #71706E;
 }
 
-.help{
-    color: #00AFD7;
-    font-family: 'Lato', sans-serif;
-    font-size:16px;
-    position : fixed;
-    bottom: 10px;
-    right: 20px
-}
-
 
 h2 {
     text-align: center;
@@ -146,11 +139,33 @@ h2 {
     box-shadow:0px 2px 5px #E0E0E0;
 }
 
-.help{
-    color: #00AFD7;
-    font-family: 'Lato', sans-serif;
-    font-size:16px;
-    position : fixed;
-    bottom: 10px;
-    right: 20px
+.quote-box {
+	/*width:450px;*/
+	height: auto;
+	background: #fff;
+	border-radius: 5px;
+}
+
+.option-box {
+	/*width:450px;*/
+	height: auto;
+	/*background: #F8F8F8;*/
+	border-radius: 5px;
+
+}
+
+.quote-text {
+	margin : 20px;
+ }
+
+.quote {
+		font-family: 'Quicksand',sans-serif;
+		font-weight: bold;
+		font-size: 2.75em;
+}
+
+
+.quote-size {
+	font-weight: 500;
+    font-size: 3.0em
 }
