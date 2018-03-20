@@ -9,7 +9,8 @@ var userSchema = new Schema({
   age :  {type : Number , required : true},
   password : {type : String , required : true},
   rewardCoins : {type : Number},
-  ItemsSearched : {type : Number}
+  ItemsSearched : {type : Number},
+  items : {type : Schema.Types.ObjectId , ref :"Product"}
 });
 
 userSchema.methods.encryptPassword = function(password){
